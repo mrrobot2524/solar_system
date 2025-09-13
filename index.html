@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Solar System Explorer - 3D Space Game</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <body>
+        <div id="gameContainer">
+            <canvas id="canvas"></canvas>
+
+            <div id="infoPanel" class="ui-panel">
+                <h3 style="color: #64c8ff; margin-bottom: 10px">
+                    🌌 Solar System Explorer
+                </h3>
+                <div id="selectedInfo">
+                    <p><strong>Welcome to Space!</strong></p>
+                    <p>
+                        Click on planets to learn about them, or use the
+                        navigation buttons below.
+                    </p>
+                </div>
+                <div style="margin-top: 15px">
+                    <button class="planet-button" onclick="focusOnBody('sun')">
+                        ☀️ Sun
+                    </button>
+                    <button
+                        class="planet-button"
+                        onclick="focusOnBody('earth')"
+                    >
+                        🌍 Earth
+                    </button>
+                    <button class="planet-button" onclick="focusOnBody('moon')">
+                        🌙 Moon
+                    </button>
+                    <button class="planet-button" onclick="focusOnBody('mars')">
+                        🔴 Mars
+                    </button>
+                </div>
+            </div>
+
+            <div id="controlsPanel" class="ui-panel">
+                <h4 style="color: #64c8ff; margin-bottom: 10px">🎮 Controls</h4>
+
+                <div class="control-group">
+                    <label>Time Speed</label>
+                    <input
+                        type="range"
+                        id="timeSpeed"
+                        class="slider"
+                        min="0"
+                        max="10"
+                        value="1"
+                        step="0.1"
+                    />
+                    <div class="stats">
+                        Speed: <span id="speedDisplay">1x</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Zoom Level</label>
+                    <input
+                        type="range"
+                        id="zoomLevel"
+                        class="slider"
+                        min="0.1"
+                        max="5"
+                        value="1"
+                        step="0.1"
+                    />
+                    <div class="stats">
+                        Zoom: <span id="zoomDisplay">1x</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <button class="planet-button" onclick="toggleOrbits()">
+                        <span id="orbitToggle">Hide Orbits</span>
+                    </button>
+                    <button class="planet-button" onclick="resetView()">
+                        🎯 Reset View
+                    </button>
+                </div>
+            </div>
+
+            <div id="timePanel" class="ui-panel">
+                <h4 style="color: #64c8ff; margin-bottom: 5px">
+                    ⏰ Mission Time
+                </h4>
+                <div class="stats">
+                    <div>
+                        Day: <span class="highlight" id="dayCounter">1</span>
+                    </div>
+                    <div>
+                        Earth Year:
+                        <span class="highlight" id="yearCounter">2024</span>
+                    </div>
+                    <div>
+                        Mars Year:
+                        <span class="highlight" id="marsYearCounter">2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="instructions">
+                <strong>🚀 How to Navigate:</strong><br />
+                • Drag to rotate view<br />
+                • Scroll to zoom<br />
+                • Click planets for info<br />
+                • Adjust time speed<br />
+                • Watch orbital mechanics!
+            </div>
+        </div>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
